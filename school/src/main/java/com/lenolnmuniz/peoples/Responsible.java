@@ -1,12 +1,12 @@
 package com.lenolnmuniz.peoples;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Responsible extends People {
 
     private boolean[] payments = new boolean[12];
 
-    private Responsible(String name) {
+    public Responsible(String name) {
         super(name);
     }
 
@@ -18,21 +18,38 @@ public class Responsible extends People {
         this.payments = payments;
     }
 
-    public boolean payMensality(int mes, boolean situation) {
-        //TODO implementar
-        return false;
+    public boolean payMensality(int month, boolean situation) {
+        payments[month] = situation;
+        return situation;
     }
 
     @Override
-    public String seeSituation(int mes) {
-        //TODO implementar
-        return null;
+    public String seeSituation(int month) {
+        if(getPayments()[month]){
+            return "O pagamento foi realizado no mês: " + month;
+        }
+        return "O pagamento não foi realizado no mês: " + month;
+    }
+
+    private StringBuilder convertListInString(ArrayList<Integer> list) {
+        StringBuilder result = new StringBuilder();
+        return result.append(list).append(", ");
+    }
+
+    private String monthsPaid() {
+        ArrayList<Integer> monthsPaidList = new ArrayList<Integer>();
+
+        for (int month = 1; month < payments.length ; month++) {
+            if(payments[month]){
+                monthsPaidList.add(month);
+            }
+        }
+        return "Os meses pagos foram: " + convertListInString(monthsPaidList);
     }
 
     @Override
     public String report() {
-        //TODO implementar
-        return null;
+        return "O responsável finaceiro " + getName() + " realizou o pagamento: " + monthsPaid();
     }
 
 }
