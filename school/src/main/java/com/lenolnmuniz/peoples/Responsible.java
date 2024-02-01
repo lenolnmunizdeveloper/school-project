@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 public class Responsible extends People {
 
-    private boolean[] payments = new boolean[12];
+    final int MONTHS = 12;
+
+    private boolean[] payments = new boolean[MONTHS];
 
     public Responsible(String name) {
         super(name);

@@ -4,14 +4,14 @@ public class Student extends People {
 
     final int UNIT = 4;
     private double[] grades = new double[UNIT];
-    private String matricula;
+    private String register;
 
-    public String getMatricula() {
-        return matricula;
+    public String getRegister() {
+        return register;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setRegister(String register) {
+        this.register = register;
     }
 
     public double[] getGrades() {
@@ -64,7 +64,7 @@ public class Student extends People {
 
     @Override
     public String report() {
-        return "O estudante " + getName() + " , " + " obteve a média final de " + calculateFinalAverage();
+        return "O estudante " + getName() + ", " + "obteve a média final de " + calculateFinalAverage();
     }
 
 
